@@ -227,6 +227,15 @@
                 <label for="phone">Phone</label>
                 <input type="tel" name="phone" id="phone" placeholder="">
               </div>
+              <!-- Honeypot fields -->
+              <div style="position: absolute; left: -9999px; top: -9999px; z-index: -2;">
+                <label for="spam">Leave this field empty:</label>
+                <input type="text" name="spam" id="spam" tabindex="-1">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" tabindex="-1">
+                <label for="website">Website:</label>
+                <input type="text" name="website" id="website" tabindex="-1">
+              </div>
               <div class="form-group grid-span-col-2">
                 <label for="message">Message</label>
                 <textarea rows="3" id="message" name="message"></textarea>
