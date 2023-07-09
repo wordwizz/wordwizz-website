@@ -1,0 +1,41 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: var(--fs-400); 
+  line-height: var(--fs-500);
+  font-family: var(--ff-base);
+  color: var(--clr-text);
+  letter-spacing: var(--ls-font-base);
+}
+
+%block {
+  margin-bottom: var(--margin-base);
+}
+
+h1 {
+  font-size: var(--fs-800);
+  line-height: var(--fs-900);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--fs-600);
+  line-height: var(--fs-800);
+  font-weight: 600;
+  letter-spacing: calc(2* var(--ls-font-base));
+  @extend %block;
+}
+
+p {
+  max-width: var(--max-paragraph-width);
+  text-align: justify;
+  margin-inline: auto;
+  @extend %block;
+}
+
+.small {
+  font-size: var(--fs-300);
+  text-align: justify;
+  font-weight: 500;
+}

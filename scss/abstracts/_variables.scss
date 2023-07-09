@@ -1,0 +1,48 @@
+:root {
+  --clr-text: hsl(217, 59%, 33%);
+  --clr-primary: hsl(198, 94%, 44%);
+  --clr-secondary: hsl(217, 59%, 33%);
+  --clr-neutral: hsl(0, 0%, 80%);
+  --clr-white: hsl(0, 100%, 100%);
+  --clr-black: hsl(0, 100%, 0%);
+
+ // --clr-bg-1: hsl(190, 91%, 79%);
+ // --clr-bg-2: hsl(186, 63%, 52%);
+ // --clr-bg-3: hsl(196, 75%, 47%);
+
+
+  --clr-bg-1: hsl(356, 88%, 97%);
+  --clr-bg-2: hsl(2, 94%, 94%);
+  --clr-bg-3: hsl(0, 100%, 85%);
+
+  --clr-bg-0: var(--clr-white);
+  --clr-bg-4: 	hsl(34, 78%, 95%);
+
+  --bg-section: var(--clr-bg-4);
+
+  --ff-base: 'Montserrat', sans-serif;
+  --ff-heading: var(--ff-base);
+
+  --fs-300: clamp(0.94rem, calc(0.92rem + 0.10vw), 1.00rem);
+  --fs-400: clamp(1.13rem, calc(1.09rem + 0.19vw), 1.25rem);
+  --fs-500: clamp(1.35rem, calc(1.28rem + 0.33vw), 1.56rem);
+  --fs-600: clamp(1.62rem, calc(1.52rem + 0.51vw), 1.95rem);
+  --fs-700: clamp(1.94rem, calc(1.79rem + 0.76vw), 2.44rem);
+  --fs-800: clamp(2.33rem, calc(2.11rem + 1.10vw), 3.05rem);
+  --fs-900: clamp(2.80rem, calc(2.49rem + 1.55vw), 3.82rem);
+
+  --ls-font-base: -0.5px;
+
+  --max-container-width: 70rem;
+  --max-paragraph-width: 70rem;
+  --max-form-width: 60rem;
+  --header-height: clamp(60px, 60px + 1vw, 90px);
+  --header-box-shadow: 0px 0px 13px -6px rgba(0,0,0,0.5);
+
+  --spacing-base: var(--fs-300);
+  --padding-base: var(--spacing-base);
+  --margin-base: var(--spacing-base);
+
+  --border-radius-base: 3px;
+
+}

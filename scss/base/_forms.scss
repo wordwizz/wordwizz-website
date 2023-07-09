@@ -1,0 +1,42 @@
+@use '../base/grid' as *;
+
+
+form {
+  display: grid;
+  max-width: var(--max-form-width);
+  margin-block: var(--margin-base);
+  gap: var(--spacing-base);
+}
+
+@include min-desktop() {
+  form {
+    grid-template-columns: repeat(2, 1fr);
+  } 
+}
+
+
+label {
+  font-size: var(--fs-300);
+  font-weight: 600;
+}
+
+.form-group {
+  display: grid;
+}
+
+input, textarea {
+  appearance: none;
+  font-size: var(--fs-300);
+  font-weight: 600;
+  border: 2px solid var(--clr-neutral);
+  padding: calc(0.5 * var(--padding-base)); 
+  border-radius: var(--border-radius-base);
+  width: 100%;
+  color: var(--clr-text);
+
+  &:focus {
+    border: 2px solid var(--clr-primary);
+    outline: 0;
+  }
+
+}

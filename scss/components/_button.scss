@@ -1,0 +1,38 @@
+%button {
+  display: block;
+  cursor: pointer;
+  appearance: none;
+
+  text-decoration: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  font-weight: 600;
+  border: 0;
+  border-radius: var(--border-radius-base);
+  padding: calc(0.5 * var(--padding-base)) var(--padding-base);
+  margin-top: var(--margin-base);
+  color: var(--clr-txt);
+  text-transform: uppercase;
+  font-size: var(--fs-300);
+}
+
+.btn-primary {
+  @extend %button;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+
+  &:hover {
+  background: var(--clr-secondary);
+  }
+
+}
+
+.btn-prev, .btn-next {
+  @extend %button;
+  margin: 0;
+  padding: 0;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+}
+

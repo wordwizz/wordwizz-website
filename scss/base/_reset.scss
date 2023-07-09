@@ -1,0 +1,63 @@
+/* Use border box for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Remove all margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Set scroll behaviour to smooth */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set a minimal body height */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+/* Set all images and pictures and video and make them block */
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+
+ul[role="nav"],
+ol[role="nav"] {
+  list-style-type: none;
+}
+
+a[role="button"] {
+  text-decoration: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+*[role="button"] {
+  cursor: pointer;
+}
+
+
+/* Reduce animation for who set such setting in their browsers */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
