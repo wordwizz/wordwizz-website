@@ -1,3 +1,5 @@
+@use '../base/_grid.scss' as *;
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -7,8 +9,15 @@ body {
   font-family: var(--ff-base);
   color: var(--clr-text);
   letter-spacing: var(--ls-font-base);
-  font-weight: 500;
+  font-weight: 400;
 }
+
+@include min-tablet() {
+  body {
+    font-weight: 500;
+  }
+}
+
 
 %block {
   margin-bottom: var(--margin-base);
