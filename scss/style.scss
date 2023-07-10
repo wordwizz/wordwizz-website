@@ -218,24 +218,8 @@ section.bg-color {
   text-align: center;
 }
 
-
-#join-us .columns {
-  align-items: center;
-}
-
-
-footer {
-  background: var(--clr-text);
-  padding: var(--padding-base);
-  color: var(--clr-white);
-}
-
-.footer-content {
-  font-size: calc(0.95 * var(--fs-300));
-}
-
-.footer-content a {
-  color: var(--clr-white);
+.contact-links a {
+  color: var(--clr-primary);
   font-weight: 600;
   text-decoration: none;
 }
@@ -254,3 +238,22 @@ footer {
   padding: 0;
   border: 0;
 }
+
+
+#join-us .columns {
+  align-items: center;
+}
+
+
+footer {
+  background: var(--clr-text);
+  padding: var(--padding-base);
+  color: var(--clr-white);
+}
+
+.footer-content {
+  font-size: calc(0.95 * var(--fs-300));
+  text-align: center;
+  width: 100%;
+}
+
