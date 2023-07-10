@@ -23,7 +23,8 @@
   color: var(--clr-white);
 
   &:hover {
-  background: var(--clr-secondary);
+  background: var(--clr-bg-3);
+  color: var(--clr-txt);
   }
 
 }
