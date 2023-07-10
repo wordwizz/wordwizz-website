@@ -13,6 +13,7 @@
     "vite": "^4.4.0"
   },
   "dependencies": {
-    "@glidejs/glide": "^3.6.0"
+    "@glidejs/glide": "^3.6.0",
+    "typewriter-effect": "^2.20.1"
   }
 }
