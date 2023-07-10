@@ -136,3 +136,14 @@ section {
     grid-column: span 2;
   }
 }
+
+// Full height section
+@include min-desktop() {
+  .fullheight-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+  }
+}
