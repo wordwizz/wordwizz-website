@@ -22,7 +22,11 @@ section.bg-color {
   background: var(--bg-section); 
 }
 
-
+.btn-primary {
+  width: 150px;
+  text-align: center;
+  line-height: 1.5;
+}
 
 @include min-tablet() {
   .equal-widths,
