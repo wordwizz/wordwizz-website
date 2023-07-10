@@ -57,9 +57,22 @@ $bp-desktop: 60rem;
   }
 }
 
+@include min-tablet() {
+  .columns {
+    padding-inline: var(--fs-400);
+  }
+}
+
 section {
-  padding: calc(2.5 * var(--fs-300));
+  padding: var(--fs-400);
   margin-top: var(--margin-base);
+}
+
+@include min-desktop() {
+  section {
+    padding-inline: var(--fs-600);
+    padding-block: var(--fs-700);
+  }
 }
 
 %grid-item {
