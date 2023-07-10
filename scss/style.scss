@@ -171,13 +171,30 @@ section.bg-color {
   color: var(--clr-primary);
 }
 
+.testimonial-block {
+  text-align: center;
+  background: var(--clr-bg-1);
+  padding: var(--padding-base);
+  box-shadow: var(--header-box-shadow);
+  border-radius: var(--border-radius-base);
+  margin-top: var(--margin-base);
+}
+
+.testimonial-title {
+  font-weight: 900;
+  font-size: var(--fs-500);
+  margin-block: var(--margin-base);
+}
+
 .testimonial-quote {
   font-size: var(--fs-400);
-  background: var(--clr-bg-1);
   border-radius: var(--border-radius-base);
   padding: var(--padding-base);
-  font-style: italic;
+  // font-style: italic;
   font-weight: 400;
+  text-align: justify;
+  max-width: 60rem;
+  margin-inline: auto;
 }
 
 .testimonial-quote::before {
@@ -193,7 +210,6 @@ section.bg-color {
 .testimonial-author {
   margin-top: var(--margin-base);
   font-weight: 600;
-  text-align: center;
 }
 
 .testimonial-author-designation {
