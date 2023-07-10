@@ -50,7 +50,7 @@ section.bg-color {
 
 #hero .btn-primary {
   margin-inline: auto;
-  margin-top: calc(2 * var(--margin-base));
+  margin-top: var(--margin-base);
 }
 
 @include min-tablet() {
@@ -190,6 +190,7 @@ section.bg-color {
   font-weight: 900;
   font-size: var(--fs-500);
   margin-block: var(--margin-base);
+  line-height: var(--fs-700);
 }
 
 .testimonial-quote {
@@ -243,6 +244,10 @@ footer {
   color: var(--clr-white);
   font-weight: 600;
   text-decoration: none;
+}
+
+.social-icons {
+  padding-block: var(--padding-base);
 }
 
 .social-icons ul {
