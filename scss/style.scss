@@ -50,6 +50,7 @@ section.bg-color {
 
 #hero .btn-primary {
   margin-inline: auto;
+  margin-top: calc(2 * var(--margin-base));
 }
 
 @include min-tablet() {
