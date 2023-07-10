@@ -154,11 +154,16 @@ section.bg-color {
 
 .glide__arrows {
   position: absolute;
-  top: 70%;
+  top: 50%;
   z-index: 1;
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.glide__arrow > img {
+  width: 24px;
+  height: 24px;
 }
 
 
