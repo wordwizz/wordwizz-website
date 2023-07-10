@@ -198,12 +198,10 @@ section.bg-color {
 
 .testimonial-quote::before {
   content: "\201C";
-  font-size: var(--fs-600);
 }
 
 .testimonial-quote::after {
   content: "\201D";
-  font-size: var(--fs-600);
 }
 
 .testimonial-author {
