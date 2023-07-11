@@ -30,6 +30,46 @@ const domReady = function() {
     }
   });
 
+  /* Contact Form Submission using fetch API */
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    // Prevent form submission
+    event.preventDefault(); 
+
+    // Perform client-side validation
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+    // Get the API endpoint from the form's action attribute
+    const apiEndpoint = this.action;
+
+    // Create a new FormData object and populate it with form data
+    const formData = new FormData(this);
+
+    // Make a POST request to the API endpoint
+    fetch(apiEndpoint, {
+      method: "POST",
+      body: formData
+    })
+      .then(response => {
+        if (response.ok) {
+          // Show success toast message
+          showNotification("Form submitted successfully", true);
+        } else {
+          // Show failure toast message
+          showNotification("There was some issue submitting the form.", false);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Handle additional data from the API response if needed
+        console.table(data);
+      })
+      .catch(error => {
+        console.error("An error occurred:", error);
+      });
+  });
+
   /* Slider */
   const glider = new Glide('.glide', {
     type: 'carousel',
