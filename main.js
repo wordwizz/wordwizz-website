@@ -55,6 +55,7 @@ const domReady = function() {
         if (response.ok) {
           // Show success toast message
           showNotification("Form submitted successfully", true);
+          this.reset();
         } else {
           // Show failure toast message
           showNotification("There was some issue submitting the form.", false);
