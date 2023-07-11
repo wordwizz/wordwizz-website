@@ -54,17 +54,18 @@ glider.mount({ Autoplay, Controls })
 /* Type Writer Effect */
 import Typewriter from 'typewriter-effect/dist/core';
 
-const typewriter = new Typewriter('.typewriter', {
-  typeString: 'Your Brand<br/>Our Words',
-  loop: true,
-  delay: 75
-});
-
-typewriter
-  .pauseFor(500)
-  .typeString('Your Brand<br/>Our Words')
-  .pauseFor(3000)
-  .deleteChars(24)
-  .typeString('Your Brand<br/>Our Words')
-  .pauseFor(2000)
-  .start();
+setTimeout(() => {
+  const typewriter = new Typewriter('.typewriter', {
+    typeString: 'Your Brand<br/>Our Words',
+    loop: true,
+    delay: 75
+  });
+  typewriter
+    .pauseFor(500)
+    .typeString('Your Brand<br/>Our Words')
+    .pauseFor(3000)
+    .deleteChars(24)
+    .typeString('Your Brand<br/>Our Words')
+    .pauseFor(2000)
+    .start();
+}, 3000)
