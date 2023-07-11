@@ -37,6 +37,18 @@ section.bg-color {
   } 
 }
 
+.Typewriter__cursor {
+  font-weight: 400;
+}
+
+#hero {
+  transition: 1s height ease-in;
+}
+
+#hero h1 {
+  min-height: calc(2 * var(--fs-900) + 1 * var(--fs-700));
+}
+
 #hero::before {
   content: "";
   height: var(--header-height);
