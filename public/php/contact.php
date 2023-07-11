@@ -1,82 +1,92 @@
 <?php
 
-/* Contact form script
- * Purpose: To get form data and send it as an email
- * Required values: name, company-name, email, phone, message and submit
- * */
+// Make the response json type
+header('Content-Type: application/json');
 
-// Define who to send email
-define('TO_EMAIL', "recipient@example.com");
-
-
-// Check if form submitted from the same domain exit if no
-$referer = $_SERVER['HTTP_REFERER'];
-$refererHost = parse_url($referer, PHP_URL_HOST);
-$currentHost = $_SERVER['HTTP_HOST'];
-if ($refererHost !== $currentHost) {
-  echo "Invalid form submission.";
+// Check if the request method is POST
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+  http_response_code(400);
+  echo json_encode(array("message" => "Invalid request method."));
   exit;
 }
 
-// If request method is not post
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
-  echo "Not valid request method.";
+// Check if the form was submitted from the same domain
+$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+$refererHost = parse_url($referer, PHP_URL_HOST);
+$currentHost = $_SERVER['HTTP_HOST'];
+if ($refererHost !== $currentHost) {
+  http_response_code(403);
+  echo json_encode(array("message" => "Invalid form submission."));
+  exit;
 }
 
-// Check for honeypots
+// Check for honeypot fields
 $spam = $_POST['spam'];
 $username = $_POST['username'];
 $website = $_POST['website'];
 
 // Check honeypot fields for spam submissions
 if (!empty($spam) || !empty($username) || !empty($website)) {
-  echo "Possible spam submission. Please try again.";
+  http_response_code(400);
+  echo json_encode(array("message" => "Possible spam submission. Please try again."));
   exit;
 }
 
 // Get fields from form
-$name = $_POST['name'];
-$companyName = $_POST['company-name'];
+$fields = array(
+  "name" => "Name",
+  "company-name" => "Company Name",
+  "email" => "Email",
+  "phone" => "Phone",
+  "message" => "Message"
+);
+
+foreach ($fields as $key => $label) {
+  if (empty($_POST[$key])) {
+    http_response_code(400);
+    echo json_encode(array("message" => "Please fill in all required fields."));
+    exit;
+  }
+}
+
 $email = $_POST['email'];
 $phone = $_POST['phone'];
-$message = $_POST['message'];
 
-// Validate fields
-if (empty($name) || empty($companyName) || empty($email) || empty($phone) || empty($message)) {
-  echo "Please fill in all required fields.";
-  exit;
-}
-
+// Validate email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  echo "Invalid email address.";
+  http_response_code(400);
+  echo json_encode(array("message" => "Invalid email address."));
   exit;
 }
 
+// Validate phone number
 if (!preg_match('/^[0-9+\-\s()]*$/', $phone)) {
-  echo "Invalid phone number.";
+  http_response_code(400);
+  echo json_encode(array("message" => "Invalid phone number."));
   exit;
 }
+
+// Load send email from env
+$env = parse_ini_file(dirname(__FILE__, 2).'/.env');
+$to = $env["TO_EMAIL"];
 
 // Set the email subject
 $subject = "Contact Form Submission";
 
 // Set the email headers
-$headers = "From: {$name} <{$email}>" . "\r\n";
+$headers = "From: {$_POST['name']} <{$email}>" . "\r\n";
 $headers .= "Reply-To: {$email}" . "\r\n";
 
-
-$emailBody = "A visitor on the website {$currentHost} has submitted the get in touch form with below information";
-
 // Build the email body
-$emailBody .= "Name: {$name}\n";
-$emailBody .= "Company Name: {$companyName}\n";
-$emailBody .= "Email: {$email}\n";
-$emailBody .= "Phone: {$phone}\n";
-$emailBody .= "Message: {$message}\n";
+$emailBody = "A visitor on the website {$currentHost} has submitted the get in touch form with the following information:\n";
+foreach ($fields as $key => $label) {
+  $emailBody .= "{$label}: {$_POST[$key]}\n";
+}
 
 // Send the email
-if (mail(TO_EMAIL, $subject, $emailBody, $headers)) {
-  echo "Email sent successfully!";
+if (mail($to, $subject, $emailBody, $headers)) {
+  echo json_encode(array("message" => "Email sent successfully!"));
 } else {
-  echo "Error sending email.";
+  http_response_code(500);
+  echo json_encode(array("message" => "Error sending email."));
 }
