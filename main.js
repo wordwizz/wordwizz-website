@@ -43,7 +43,7 @@ const glider = new Glide('.glide', {
   perView: 1,
   focusAt: 'center',
   keyboard: true,
-  autoplay: 3000,
+  autoplay: 8000,
   animationDuration: 1000
 })
 
