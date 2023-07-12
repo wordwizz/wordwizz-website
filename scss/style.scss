@@ -94,9 +94,20 @@ section.bg-color {
   #hero .btn-primary {
     margin-inline: 0; 
   }
+
+  #hero .section-content p {
+    text-align: left;
+  }
 }
 
 /* Section: Who we are */
+
+@include min-tablet() {
+  #who-we-are .section-content p {
+    text-align: left;
+  }
+}
+
 
 .service-title {
   text-align: center;
@@ -148,6 +159,7 @@ section.bg-color {
   padding: var(--padding-base);
   font-size: var(--fs-300);
   font-weight: 500;
+  margin-bottom: calc(0.5 * var(--margin-base));
 }
 
 .speciality:nth-of-type(1) {
@@ -273,7 +285,7 @@ footer {
 }
 
 .footer-content {
-  font-size: calc(0.95 * var(--fs-300));
+  font-size: calc(0.89 * var(--fs-300));
   text-align: center;
   width: 100%;
 }

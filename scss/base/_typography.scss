@@ -32,7 +32,7 @@ h1 {
 
 h2 {
   font-size: var(--fs-600);
-  line-height: var(--fs-800);
+  line-height: var(--fs-700);
   font-weight: 600;
   letter-spacing: calc(2* var(--ls-font-base));
   @extend %block;
@@ -46,7 +46,7 @@ p {
 }
 
 .small {
-  font-size: calc(0.90 * var(--fs-300));
+  font-size: calc(0.89 * var(--fs-300));
   text-align: justify;
   font-weight: 500;
 }
