@@ -8,6 +8,7 @@
   border-radius: var(--border-radius-base);
   text-align: center;
   transition: display 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  z-index:3;
 }
 
 .notification-success {
