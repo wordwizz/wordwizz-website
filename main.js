@@ -18,6 +18,13 @@ const showNotification = function (message, isSuccess) {
 }
 
 const domReady = function() {
+  
+  /* Remove 000webhost branding */
+  // Remove this
+  document.querySelectorAll('footer + div + script')[0].remove();
+  // Remove 000webhostlogo
+  document.querySelectorAll('footer + div')[0].remove();
+
   /* Hamburger Menu */
   const nav_main = document.getElementById('main-nav')
   const nav_toggle = document.getElementById('nav-toggle')
@@ -129,3 +136,7 @@ if (document.readyState === "complete" || (document.readyState !== "loading" && 
 } else {
   document.addEventListener("DOMContentLoaded", domReady);
 }
+
+
+
+
