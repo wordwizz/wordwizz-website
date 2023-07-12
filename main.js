@@ -88,15 +88,12 @@ const domReady = function() {
     const typewriter = new Typewriter('.typewriter', {
       typeString: 'Your Brand<br/>Our Words',
       loop: true,
-      delay: 75
+      delay: 75,
+      deleteSpeed: 1
     });
     typewriter
-      .pauseFor(500)
       .typeString('Your Brand<br/>Our Words')
-      .pauseFor(3000)
-      .deleteChars(24)
-      .typeString('Your Brand<br/>Our Words')
-      .pauseFor(2000)
+      .pauseFor(4000)
       .start();
   }, 3000)
 
