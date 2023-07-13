@@ -10,6 +10,16 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
   exit;
 }
 
+// Check if the form was submitted from the same domain
+$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+$refererHost = parse_url($referer, PHP_URL_HOST);
+$currentHost = $_SERVER['HTTP_HOST'];
+if ($refererHost !== $currentHost) {
+  http_response_code(403);
+  echo json_encode(array("message" => "Invalid form submission."));
+  exit;
+}
+
 // Check for honeypot fields
 $spam = $_POST['spam'];
 $username = $_POST['username'];

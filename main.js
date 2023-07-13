@@ -48,7 +48,7 @@ const domReady = function() {
       return;
     }
     // Get the API endpoint from the form's action attribute
-    const apiEndpoint = "https://wordwizz.000webhostapp.com/php/contact.php";
+    const apiEndpoint = this.action;
 
     // Create a new FormData object and populate it with form data
     const formData = new FormData(this);
