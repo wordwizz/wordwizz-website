@@ -21,9 +21,15 @@ const domReady = function() {
   
   /* Remove 000webhost branding */
   // Remove this
-  document.querySelectorAll('footer + div + script')[0].remove();
+  const webhostscript =  document.querySelectorAll('footer + div + script')[0];
+  if (webhostscript) {
+    webhostscript.remove();
+  }
   // Remove 000webhostlogo
-  document.querySelectorAll('footer + div')[0].remove();
+  const webhostbanner =  document.querySelectorAll('footer + div')[0];
+  if (webhostbanner) {
+    webhostbanner.remove();
+  }
 
   /* Hamburger Menu */
   const nav_main = document.getElementById('main-nav')
