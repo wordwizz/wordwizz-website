@@ -1,5 +1,7 @@
-# PHP INI
-php_value display_errors 1
+# Forced HTTPS redirection
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # For Efficient cache policy
 <IfModule mod_expires.c>
