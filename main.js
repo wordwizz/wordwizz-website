@@ -3,21 +3,31 @@
 import Glide, { Autoplay, Controls } from '@glidejs/glide/dist/glide.modular.esm';
 import Typewriter from 'typewriter-effect/dist/core';
 
-/* Function to show toast notifications */
-const showNotification = function (message, isSuccess) {
-  const notificationElement = document.getElementById("notification");
-  notificationElement.textContent = message;
-  const classToAdd = isSuccess ? "notification-success" : "notification-warning";
-  notificationElement.classList.add(classToAdd);
-  notificationElement.classList.add('show');
-
-  // Hide notification after 3 seconds (adjust as needed)
-  setTimeout(function() {
-  notificationElement.classList.add('hide');
-  }, 3000);
-}
-
 const domReady = function() {
+
+  /* Slider */
+  const glider = new Glide('.glide', {
+    type: 'carousel',
+    perView: 1,
+    focusAt: 'center',
+    keyboard: true,
+    autoplay: 8000,
+    animationDuration: 1000
+  })
+
+  /* Function to show toast notifications */
+  const showNotification = function (message, isSuccess) {
+    const notificationElement = document.getElementById("notification");
+    notificationElement.textContent = message;
+    const classToAdd = isSuccess ? "notification-success" : "notification-warning";
+    notificationElement.classList.add(classToAdd);
+    notificationElement.classList.add('show');
+
+    // Hide notification after 3 seconds (adjust as needed)
+    setTimeout(function() {
+      notificationElement.classList.add('hide');
+    }, 3000);
+  }
 
   /* Hamburger Menu */
   const nav_main = document.getElementById('main-nav')
@@ -72,17 +82,10 @@ const domReady = function() {
       });
   });
 
-  /* Slider */
-  const glider = new Glide('.glide', {
-    type: 'carousel',
-    perView: 1,
-    focusAt: 'center',
-    keyboard: true,
-    autoplay: 8000,
-    animationDuration: 1000
-  })
-  glider.mount({ Autoplay, Controls })
-
+  /* Run slider after 4seconds */
+  setTimeout(() => {
+    glider.mount({ Autoplay, Controls })
+  }, 4000);
 
   /* Type Writer Effect */
   setTimeout(() => {
@@ -116,7 +119,7 @@ const domReady = function() {
         const headerHeight = parseInt(computedStyle.getPropertyValue('height'));
         document.body.removeChild(tempElement);
 
-        const top = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        const top = element.getBoundingClientRect().top + window.scrollY - headerHeight;
         window.scrollTo({ top, behavior: 'smooth' });
         event.preventDefault();
       }
@@ -130,7 +133,3 @@ if (document.readyState === "complete" || (document.readyState !== "loading" && 
 } else {
   document.addEventListener("DOMContentLoaded", domReady);
 }
-
-
-
-
