@@ -1,7 +1,9 @@
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import Sitemap from 'vite-plugin-sitemap'
 
 export default {
   plugins: [
+    ViteImageOptimizer({}),
     Sitemap({
       hostname: "https://wordwizz.in/",
       exclude: ["/php"],
