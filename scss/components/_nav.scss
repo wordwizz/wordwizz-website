@@ -3,7 +3,7 @@
 header {
   position: fixed;
   width: 100%;
-  background: var(--clr-white);
+  background: var(--clr-primary);
   top: 0;
   box-shadow: var(--header-box-shadow);
   z-index: 2
@@ -32,7 +32,6 @@ header {
     display: flex;
     align-items: center;
     height: 100%;
-    background: var(--clr-white);
 
     a {
       text-decoration: none;
@@ -42,11 +41,11 @@ header {
       border-radius: var(--border-radius-base);
       font-size: var(--fs-300);
       font-weight: 600;
-      color: var(--clr-text);
+      color: var(--clr-white);
 
       &:hover {
-        background: var(--clr-primary);
-        color: var(--clr-white);
+        background: var(--clr-white);
+        color: var(--clr-primary);
       } 
     }
   }
@@ -75,11 +74,13 @@ header {
       width: 100%;
       height: auto;
       box-shadow: var(--header-box-shadow);
+      background: var(--clr-white);
 
       a {
         width: 100vw;
         display: block;
         border-radius: 0;
+        color: var(--clr-primary)
       }
     }
   }
