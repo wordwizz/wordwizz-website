@@ -21,7 +21,7 @@ img {
 }
 
 section.bg-color {
-  background: var(--bg-section); 
+  background: var(--bg-section);
 }
 
 .btn-primary {
@@ -36,7 +36,7 @@ section.bg-color {
   .two-one-thirds,
   .one-three-fourths  {
     align-items: flex-end;
-  } 
+  }
 }
 
 .columns > h2 {
@@ -92,7 +92,7 @@ section.bg-color {
 
 @include min-tablet() {
   #hero .btn-primary {
-    margin-inline: 0; 
+    margin-inline: 0;
   }
 
   #hero .section-content p {
@@ -137,7 +137,7 @@ section.bg-color {
 @include min-tablet() {
   .service-title {
     min-height: calc(2.5 * var(--fs-400));
-  }  
+  }
 }
 
 @include min-desktop() {
@@ -259,7 +259,7 @@ section.bg-color {
 }
 
 .social-icons ul {
-  display: flex; 
+  display: flex;
   gap: var(--spacing-base);
 }
 
@@ -278,6 +278,13 @@ section.bg-color {
 
 #join-us .columns {
   align-items: center;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  z-index: -2
 }
 
 /* Footer */
