@@ -1,9 +1,20 @@
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import ViteWebfontDownload from 'vite-plugin-webfont-dl';
 import Sitemap from 'vite-plugin-sitemap'
 
 export default {
   plugins: [
     ViteImageOptimizer({}),
+    ViteWebfontDownload(
+      [],
+      {
+        injectAsStyleTag: true,
+        minifyCss: true,
+        async: true,
+        cache: true,
+        proxy: false,
+      }
+    ),
     Sitemap({
       hostname: "https://wordwizz.in/",
       exclude: ["/php"],
