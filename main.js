@@ -18,18 +18,6 @@ const showNotification = function (message, isSuccess) {
 }
 
 const domReady = function() {
-  
-  /* Remove 000webhost branding */
-  // Remove this
-  const webhostscript =  document.querySelectorAll('footer + div + script')[0];
-  if (webhostscript) {
-    webhostscript.remove();
-  }
-  // Remove 000webhostlogo
-  const webhostbanner =  document.querySelectorAll('footer + div')[0];
-  if (webhostbanner) {
-    webhostbanner.remove();
-  }
 
   /* Hamburger Menu */
   const nav_main = document.getElementById('main-nav')
