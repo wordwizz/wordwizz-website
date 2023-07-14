@@ -19,6 +19,9 @@ devDependencies:
   vite:
     specifier: ^4.4.0
     version: 4.4.0(sass@1.63.6)
+  vite-plugin-sitemap:
+    specifier: ^0.4.2
+    version: 0.4.2
 
 packages:
 
@@ -477,6 +480,10 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
+
+  /vite-plugin-sitemap@0.4.2:
+    resolution: {integrity: sha512-xNTYPcNW+XthOJqI459DYyCZ6nPDKpnFFnvMHVlshtDn+UUp1y37HgmvmWEsCdLp0LZILnzHfrjVrH44V2krAg==}
+    dev: true
 
   /vite@4.4.0(sass@1.63.6):
     resolution: {integrity: sha512-Wf+DCEjuM8aGavEYiF77hnbxEZ+0+/jC9nABR46sh5Xi+GYeSvkeEFRiVuI3x+tPjxgZeS91h1jTAQTPFgePpA==}
