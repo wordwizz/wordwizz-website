@@ -1,19 +1,6 @@
 "use strict";
 
-import Glide, { Autoplay, Controls } from '@glidejs/glide/dist/glide.modular.esm';
-import Typewriter from 'typewriter-effect/dist/core';
-
 const domReady = function() {
-
-  /* Slider */
-  const glider = new Glide('.glide', {
-    type: 'carousel',
-    perView: 1,
-    focusAt: 'center',
-    keyboard: true,
-    autoplay: 8000,
-    animationDuration: 1000
-  })
 
   /* Function to show toast notifications */
   const showNotification = function (message, isSuccess) {
@@ -84,21 +71,33 @@ const domReady = function() {
 
   /* Run slider after 4seconds */
   setTimeout(() => {
-    glider.mount({ Autoplay, Controls })
+    import('@glidejs/glide/dist/glide.modular.esm').then(({ default: Glide, Autoplay, Controls }) => {
+      const glider = new Glide('.glide', {
+        type: 'carousel',
+        perView: 1,
+        focusAt: 'center',
+        keyboard: true,
+        autoplay: 8000,
+        animationDuration: 1000
+      });
+      glider.mount({ Autoplay, Controls });
+    });
   }, 4000);
 
   /* Type Writer Effect */
   setTimeout(() => {
-    const typewriter = new Typewriter('.typewriter', {
-      typeString: 'Your Brand<br/>Our Words',
-      loop: true,
-      delay: 75,
-      deleteSpeed: 1
+    import('typewriter-effect/dist/core').then(({ default: Typewriter }) => {
+      const typewriter = new Typewriter('.typewriter', {
+        typeString: 'Your Brand<br/>Our Words',
+        loop: true,
+        delay: 75,
+        deleteSpeed: 1
+      });
+      typewriter
+        .typeString('Your Brand<br/>Our Words')
+        .pauseFor(4000)
+        .start();
     });
-    typewriter
-      .typeString('Your Brand<br/>Our Words')
-      .pauseFor(4000)
-      .start();
   }, 3000)
 
   /* Smooth Scrolling behavior with fixed header offset */
@@ -127,9 +126,9 @@ const domReady = function() {
   });
 };
 
-
 if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
   domReady();
 } else {
   document.addEventListener("DOMContentLoaded", domReady);
 }
+
