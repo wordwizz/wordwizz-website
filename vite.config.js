@@ -1,6 +1,7 @@
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import ViteWebfontDownload from 'vite-plugin-webfont-dl';
 import Sitemap from 'vite-plugin-sitemap'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 export default {
   plugins: [
@@ -22,5 +23,8 @@ export default {
       generateRobotsTxt: true,
       robots: [{ userAgent: '*', allow: '/', disallow: '/php' }],
     }),
+    createHtmlPlugin({
+      minify: true,
+    })
   ],
 }
