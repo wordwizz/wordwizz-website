@@ -287,6 +287,7 @@ section.bg-color {
   z-index: -2
 }
 
+
 /* Footer */
 
 footer {
@@ -301,3 +302,22 @@ footer {
   width: 100%;
 }
 
+/* Whatsapp Background */
+
+.whatsapp-block {
+  position: fixed;
+  right: var(--margin-base);
+  bottom: calc(3 * var(--margin-base));
+}
+
+.whatsapp-link {
+  background: var(--clr-whatsapp);
+  cursor: pointer;
+  z-index: 2;
+  height: calc(4 * var(--margin-base));
+  width: calc(4 * var(--margin-base) );
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
